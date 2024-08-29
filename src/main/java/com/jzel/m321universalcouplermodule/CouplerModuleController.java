@@ -14,7 +14,7 @@ public class CouplerModuleController {
 
     @PostMapping(value = "/**", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> receive() {
-        byte[] byteArray = Base64.getDecoder().decode("ewogIm1lc3NhZ2UiOiAie1xuIFwic291cmNlXCI6IFwiWnVycm8gU3RhdGlvblwiLFxuIFwiZGVzdGluYXRpb25cIjogXCJBenVyYSBTdGF0aW9uXCIsXG4gXCJkYXRhXCI6IFwiRm9yc2NodW5nc2RhdGVuIChHcnVwcGUgMTkyLjE2OC4xMDAuMTEpXCIsXG4gXCJ0c1wiOiBcIjc0MzA4OVwiXG59XG4iLAogInNpZ25hdHVyZSI6ICI1NGNjOTFjOTZiMzEzMmExOWQ0ZTI0YTk5N2NiYTQ4YzJlNjVlMzMzOGZiODU1MjM0YzBiZWIwZWNhOWExIgp9Cg==");
+        byte[] byteArray = new String(Base64.getDecoder().decode("ewogIm1lc3NhZ2UiOiAie1xuIFwic291cmNlXCI6IFwiWnVycm8gU3RhdGlvblwiLFxuIFwiZGVzdGluYXRpb25cIjogXCJBenVyYSBTdGF0aW9uXCIsXG4gXCJkYXRhXCI6IFwiRm9yc2NodW5nc2RhdGVuIChHcnVwcGUgMTkyLjE2OC4xMDAuMTEpXCIsXG4gXCJ0c1wiOiBcIjc0MzA4OVwiXG59XG4iLAogInNpZ25hdHVyZSI6ICI1NGNjOTFjOTZiMzEzMmExOWQ0ZTI0YTk5N2NiYTQ4YzJlNjVlMzMzOGZiODU1MjM0YzBiZWIwZWNhOWExIgp9Cg==")).getBytes();
 
         // StringBuilder zur Formatierung des Byte-Arrays als String
         StringBuilder result = new StringBuilder();
