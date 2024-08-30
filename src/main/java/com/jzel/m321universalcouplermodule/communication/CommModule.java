@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CommModule {
 
-  void send(final MessageDto message);
+  void send(final MessageDto message) throws IOException;
 
   List<MessageDto> receive() throws IOException;
 }

@@ -28,7 +28,7 @@ public class CouplerController {
   @PostMapping("/{stationName}/send")
   public ResponseEntity<CouplerResponseDto> send(
       @PathVariable final String stationName, @RequestBody final MessageDto message
-  ) {
+  ) throws IOException {
     commModuleFactory.create(stationName).send(message);
     return ResponseEntity.ok(SUCCESS_CONSUMPTION);
   }
