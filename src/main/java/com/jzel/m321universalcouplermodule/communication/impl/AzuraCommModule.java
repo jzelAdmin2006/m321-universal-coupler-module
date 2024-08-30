@@ -1,6 +1,7 @@
-package com.jzel.m321universalcouplermodule.communication;
+package com.jzel.m321universalcouplermodule.communication.impl;
 
 import com.jzel.m321universalcouplermodule.adapter.model.MessageDto;
+import com.jzel.m321universalcouplermodule.communication.CommModule;
 import java.util.List;
 
 public class AzuraCommModule implements CommModule {
