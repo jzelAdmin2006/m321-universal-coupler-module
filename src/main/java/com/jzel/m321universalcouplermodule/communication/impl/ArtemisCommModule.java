@@ -2,9 +2,9 @@ package com.jzel.m321universalcouplermodule.communication.impl;
 
 import static java.util.Objects.requireNonNull;
 
-import com.jzel.m321universalcouplermodule.adapter.model.MessageDto;
 import com.jzel.m321universalcouplermodule.communication.CommModule;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.ArtemisReceiveMessagesDto;
+import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDto;
 import com.jzel.m321universalcouplermodule.communication.adapter.service.CommunicationMapperService;
 import java.io.IOException;
 import java.util.List;
@@ -31,7 +31,7 @@ public class ArtemisCommModule implements CommModule {
   private final CommunicationMapperService mapper;
 
   @Override
-  public void send(MessageDto message) throws IOException {
+  public void send(String message) {
     // TODO implement this
   }
 

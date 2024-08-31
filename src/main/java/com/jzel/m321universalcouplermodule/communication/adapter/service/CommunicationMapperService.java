@@ -4,10 +4,10 @@ import static java.util.Arrays.asList;
 import static org.apache.commons.lang3.ArrayUtils.toObject;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
-import com.jzel.m321universalcouplermodule.adapter.model.MessageDto;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.ArtemisReceiveMessagesDto;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.ArtemisReceiveMessagesDto.ValueElement;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.Base64ReceiveResponseDto.Base64MessageDto;
+import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDto;
 import java.util.Base64;
 import java.util.List;
 import java.util.stream.IntStream;

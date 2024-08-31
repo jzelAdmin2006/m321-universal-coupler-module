@@ -3,10 +3,9 @@ package com.jzel.m321universalcouplermodule.communication.impl;
 import static java.util.Collections.synchronizedList;
 
 import com.google.gson.Gson;
-import com.jzel.m321universalcouplermodule.adapter.model.MessageDto;
 import com.jzel.m321universalcouplermodule.communication.CommModule;
+import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDto;
 import jakarta.annotation.PostConstruct;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -26,12 +25,12 @@ public class ElyseCommModule implements CommModule {
   private final List<String> payloadBuffer = synchronizedList(new ArrayList<>());
 
   @Override
-  public void send(MessageDto message) throws IOException {
+  public void send(String message) {
     // TODO implement this
   }
 
   @Override
-  public List<MessageDto> receive() throws IOException {
+  public List<MessageDto> receive() {
     final List<MessageDto> receivedMessages = payloadBuffer.stream()
         .map(payload -> gson.fromJson(payload, MessageDto.class)).toList();
     payloadBuffer.clear();

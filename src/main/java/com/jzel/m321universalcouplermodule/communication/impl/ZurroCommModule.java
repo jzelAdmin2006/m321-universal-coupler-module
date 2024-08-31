@@ -14,6 +14,6 @@ public class ZurroCommModule extends RestBase64CommModule {
 
   @Override
   String getUrl() {
-    return "http://192.168.100.11:2029/receive";
+    return "http://192.168.100.11:2029";
   }
 }

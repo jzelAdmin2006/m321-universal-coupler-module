@@ -1,4 +1,4 @@
-package com.jzel.m321universalcouplermodule.adapter.model;
+package com.jzel.m321universalcouplermodule.communication.adapter.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;

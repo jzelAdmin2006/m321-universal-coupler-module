@@ -4,10 +4,8 @@ package com.jzel.m321universalcouplermodule.adapter.rest;
 import static com.jzel.m321universalcouplermodule.adapter.model.CouplerResponseDto.SUCCESS_CONSUMPTION;
 import static org.springframework.http.HttpStatus.valueOf;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.jzel.m321universalcouplermodule.adapter.model.CouplerResponseDto;
-import com.jzel.m321universalcouplermodule.adapter.model.MessageDto;
 import com.jzel.m321universalcouplermodule.communication.CommModuleFactory;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +22,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class CouplerController {
 
   private final CommModuleFactory commModuleFactory;
-  private final Gson gson;
 
   @PostMapping("/{stationName}/receive")
   public ResponseEntity<CouplerResponseDto> receive(@PathVariable final String stationName) throws IOException {
@@ -37,7 +34,7 @@ public class CouplerController {
       @RequestBody final String messageContent
   ) throws IOException {
     try {
-      commModuleFactory.create(stationName).send(gson.fromJson(messageContent, MessageDto.class));
+      commModuleFactory.create(stationName).send(messageContent);
       return ResponseEntity.ok(SUCCESS_CONSUMPTION);
     } catch (JsonSyntaxException e) {
       throw new ResponseStatusException(valueOf(400), "invalid JSON format");
