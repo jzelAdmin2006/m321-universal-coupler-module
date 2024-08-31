@@ -2,6 +2,7 @@ package com.jzel.m321universalcouplermodule.communication;
 
 import static org.springframework.http.HttpStatus.valueOf;
 
+import com.jzel.m321universalcouplermodule.communication.impl.ArtemisCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.AzuraCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.ZurroCommModule;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class CommModuleFactory {
     return switch (stationName) {
       case "Zurro Station" -> ZurroCommModule.class;
       case "Azura Station" -> AzuraCommModule.class;
+      case "Artemis Station" -> ArtemisCommModule.class;
       default -> throw new ResponseStatusException(
           valueOf(404), "No communication module found for station name '%s'".formatted(stationName)
       );
