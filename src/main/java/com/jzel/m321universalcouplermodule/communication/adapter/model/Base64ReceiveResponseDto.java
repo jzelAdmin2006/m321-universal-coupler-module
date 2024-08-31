@@ -8,8 +8,8 @@ public record Base64ReceiveResponseDto(
 ) {
 
   public record Base64MessageDto(
-      String dest,
-      @SerializedName(value = "msg", alternate = {"base64data"}) String message
+      @SerializedName(value = "target", alternate = "dest") String target,
+      @SerializedName(value = "msg", alternate = {"base64data", "data"}) String message
   ) {
 
   }

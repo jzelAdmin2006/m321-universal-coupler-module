@@ -18,7 +18,7 @@ public class CommunicationMapperService {
 
   public MessageDto toMessageDto(final Base64MessageDto base64MessageDto) {
     return new MessageDto(
-        base64MessageDto.dest(),
+        base64MessageDto.target(),
         asList(toObject(Base64.getDecoder().decode(base64MessageDto.message())))
     );
   }

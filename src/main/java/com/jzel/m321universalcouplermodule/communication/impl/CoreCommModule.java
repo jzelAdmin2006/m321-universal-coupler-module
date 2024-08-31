@@ -6,14 +6,14 @@ import okhttp3.OkHttpClient;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ZurroCommModule extends RestBase64CommModule {
+public class CoreCommModule extends RestBase64CommModule {
 
-  public ZurroCommModule(final OkHttpClient client, final Gson gson, final CommunicationMapperService mapper) {
+  public CoreCommModule(final OkHttpClient client, final Gson gson, final CommunicationMapperService mapper) {
     super(client, gson, mapper);
   }
 
   @Override
   String getUrl() {
-    return "http://192.168.100.11:2029/receive";
+    return "http://192.168.100.11:2027/receive";
   }
 }

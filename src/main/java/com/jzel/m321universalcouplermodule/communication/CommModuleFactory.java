@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.valueOf;
 
 import com.jzel.m321universalcouplermodule.communication.impl.ArtemisCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.AzuraCommModule;
+import com.jzel.m321universalcouplermodule.communication.impl.CoreCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.ElyseCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.ZurroCommModule;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class CommModuleFactory {
     return switch (stationName) {
       case "Zurro Station" -> ZurroCommModule.class;
       case "Azura Station" -> AzuraCommModule.class;
+      case "Core Station" -> CoreCommModule.class;
       case "Artemis Station" -> ArtemisCommModule.class;
       case "Elyse Terminal" -> ElyseCommModule.class;
       default -> throw new ResponseStatusException(
