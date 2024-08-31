@@ -8,7 +8,7 @@ import java.util.List;
 public record MessageDto(
     @SerializedName(value = DESTINATION, alternate = SOURCE)
     @JsonProperty(DESTINATION) @JsonAlias(SOURCE) String identifier,
-    List<Byte> data
+    @SerializedName(value = "data", alternate = "msg") List<Byte> data
 ) {
 
   private static final String DESTINATION = "destination";
