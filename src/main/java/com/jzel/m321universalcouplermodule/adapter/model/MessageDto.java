@@ -2,8 +2,15 @@ package com.jzel.m321universalcouplermodule.adapter.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-public record MessageDto(@JsonProperty("destination") @JsonAlias("source") String identifier, List<Byte> data) {
+public record MessageDto(
+    @SerializedName(value = DESTINATION, alternate = SOURCE)
+    @JsonProperty(DESTINATION) @JsonAlias(SOURCE) String identifier,
+    List<Byte> data
+) {
 
+  private static final String DESTINATION = "destination";
+  private static final String SOURCE = "source";
 }
