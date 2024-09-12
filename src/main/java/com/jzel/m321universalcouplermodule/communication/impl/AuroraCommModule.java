@@ -1,6 +1,7 @@
 package com.jzel.m321universalcouplermodule.communication.impl;
 
 import static com.google.common.primitives.Bytes.asList;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.jzel.m321universalcouplermodule.communication.CommModule;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDto;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class AuroraCommModule implements CommModule {
 
   @Override
-  public void send(String message) throws IOException {
+  public void send(String message) {
     // TODO implement this
   }
 
@@ -42,11 +43,11 @@ public class AuroraCommModule implements CommModule {
         int sizeOfSrcDst = in.readUnsignedByte();
         byte[] srcDstBytes = new byte[sizeOfSrcDst];
         in.readFully(srcDstBytes);
-        String srcDst = new String(srcDstBytes, "UTF-8");
+        String srcDst = new String(srcDstBytes, UTF_8);
 
         byte[] messageBytes = new byte[sizeOfMessage];
         in.readFully(messageBytes);
-        String messageContent = new String(messageBytes, "UTF-8");
+        String messageContent = new String(messageBytes, UTF_8);
 
         if (!receivedMessages.add(messageContent)) {
           break;
