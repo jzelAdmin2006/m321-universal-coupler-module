@@ -3,6 +3,7 @@ package com.jzel.m321universalcouplermodule.communication;
 import static org.springframework.http.HttpStatus.valueOf;
 
 import com.jzel.m321universalcouplermodule.communication.impl.ArtemisCommModule;
+import com.jzel.m321universalcouplermodule.communication.impl.AuroraCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.AzuraCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.CoreCommModule;
 import com.jzel.m321universalcouplermodule.communication.impl.ElyseCommModule;
@@ -29,6 +30,7 @@ public class CommModuleFactory {
       case "Core Station" -> CoreCommModule.class;
       case "Artemis Station" -> ArtemisCommModule.class;
       case "Elyse Terminal" -> ElyseCommModule.class;
+      case "Aurora Station" -> AuroraCommModule.class;
       default -> throw new ResponseStatusException(
           valueOf(404), "No communication module found for station name '%s'".formatted(stationName)
       );
