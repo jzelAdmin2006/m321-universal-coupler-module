@@ -11,6 +11,8 @@ import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDt
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
+
+import com.jzel.m321universalcouplermodule.config.StationConfig;
 import lombok.RequiredArgsConstructor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request.Builder;
@@ -29,7 +31,7 @@ public class AzuraCommModule implements CommModule {
   public void send(final String messageJson) throws IOException {
     MessageDto message = gson.fromJson(messageJson, MessageDto.class);
     try (final Response response = client.newCall(new Builder()
-        .url("http://192.168.100.11:2030/put_message")
+        .url("http://192.168.100."+ StationConfig.STATION_NUMBER +":2030/put_message")
         .post(create(
             gson.toJson(new AzuraSendMessageDto(message.identifier(),
                 Base64.getEncoder().encodeToString(toArray(message.data())))),

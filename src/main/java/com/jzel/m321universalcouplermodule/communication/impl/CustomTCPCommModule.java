@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.jzel.m321universalcouplermodule.config.StationConfig;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public abstract class CustomTCPCommModule implements CommModule {
   @Override
   public void send(String messageJson) throws IOException {
     MessageDto message = gson.fromJson(messageJson, MessageDto.class);
-    try (Socket socket = new Socket("192.168.100.11", port);
+    try (Socket socket = new Socket("192.168.100."+ StationConfig.STATION_NUMBER, port);
          DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
       byte[] sourceBytes = message.identifier().getBytes("UTF-8");
       byte[] messageBytes = toArray(message.data());
@@ -49,7 +50,7 @@ public abstract class CustomTCPCommModule implements CommModule {
     List<MessageDto> messages = new ArrayList<>();
     Set<String> receivedMessages = new HashSet<>();
 
-    try (Socket socket = new Socket("192.168.100.11", port);
+    try (Socket socket = new Socket("192.168.100."+ StationConfig.STATION_NUMBER, port);
         DataInputStream in = new DataInputStream(socket.getInputStream())) {
 
       while (in.available() == 0) {

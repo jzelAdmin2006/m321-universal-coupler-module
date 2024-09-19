@@ -8,6 +8,8 @@ import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDt
 import com.jzel.m321universalcouplermodule.communication.adapter.service.CommunicationMapperService;
 import java.io.IOException;
 import java.util.List;
+
+import com.jzel.m321universalcouplermodule.config.StationConfig;
 import lombok.RequiredArgsConstructor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -39,7 +41,7 @@ public class ArtemisCommModule implements CommModule {
   public List<MessageDto> receive() throws IOException {
     try (final Response response = client.newCall(
         new Request.Builder()
-            .url("http://192.168.100.11:2024/RPC2")
+            .url("http://192.168.100."+ StationConfig.STATION_NUMBER +":2024/RPC2")
             .post(RequestBody.create(RECEIVE_RPC, MediaType.parse("text/xml; charset=utf-8")))
             .build()
     ).execute()

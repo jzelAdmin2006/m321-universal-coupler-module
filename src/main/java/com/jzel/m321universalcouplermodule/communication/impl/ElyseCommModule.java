@@ -5,6 +5,7 @@ import static java.util.Collections.synchronizedList;
 import com.google.gson.Gson;
 import com.jzel.m321universalcouplermodule.communication.CommModule;
 import com.jzel.m321universalcouplermodule.communication.adapter.model.MessageDto;
+import com.jzel.m321universalcouplermodule.config.StationConfig;
 import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ public class ElyseCommModule implements CommModule {
             }
           }
         },
-        "ws://192.168.100.11:2026/api"
+        "ws://192.168.100."+ StationConfig.STATION_NUMBER +":2026/api"
     ).start();
   }
 }
