@@ -1,11 +1,13 @@
 package com.jzel.m321universalcouplermodule.config;
 
 import jakarta.annotation.PostConstruct;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+@Data
 public class StationConfig {
 
     @Value("${station.number}")

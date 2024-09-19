@@ -24,6 +24,7 @@ public class ElyseCommModule implements CommModule {
 
   private final Gson gson;
   private final List<String> payloadBuffer = synchronizedList(new ArrayList<>());
+  private final StationConfig stationConfig;
 
   @Override
   public void send(String message) {
@@ -51,7 +52,7 @@ public class ElyseCommModule implements CommModule {
             }
           }
         },
-        "ws://192.168.100."+ StationConfig.STATION_NUMBER +":2026/api"
+        "ws://192.168.100."+ stationConfig.getNumber() +":2026/api"
     ).start();
   }
 }
