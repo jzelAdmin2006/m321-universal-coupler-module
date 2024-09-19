@@ -4,10 +4,9 @@ import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuroraCommModule extends CustomTCPCommModule {
+public class Station11ACommModule extends CustomTCPCommModule {
 
-
-    public AuroraCommModule(Gson gson) {
-        super(gson, 2031);
+    public Station11ACommModule(Gson gson) {
+        super(gson, 2034);
     }
 }
